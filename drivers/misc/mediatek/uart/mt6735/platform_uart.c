@@ -2323,6 +2323,12 @@ void switch_uart_gpio(int uartport, int gpioopid)
 }
 #endif /* !defined(CONFIG_MTK_LEGACY) && !defined(CONFIG_MTK_FPGA) */
 
+#ifdef CONFIG_SEC_EXT
+void inline mtk_uart_switch_tx_to_gpio(struct mtk_uart *uart) {}
+void inline mtk_uart_switch_to_tx(struct mtk_uart *uart) {}
+void inline mtk_uart_switch_rx_to_gpio(struct mtk_uart *uart) {}
+void inline mtk_uart_switch_to_rx(struct mtk_uart *uart) {}
+#else /*CONFIG_SEC_EXT */
 void mtk_uart_switch_tx_to_gpio(struct mtk_uart *uart)
 {
 #if defined(CONFIG_PM) && !defined(CONFIG_MTK_FPGA) && !defined(CONFIG_MTK_LEGACY)
@@ -2582,6 +2588,7 @@ void mtk_uart_switch_to_rx(struct mtk_uart *uart)
 #endif /* defined(CONFIG_MTK_LEGACY) */
 #endif
 }
+#endif /* CONFIG_SEC_EXT */
 
 /*---------------------------------------------------------------------------*/
 void mtk_uart_enable_dpidle(struct mtk_uart *uart)

@@ -3021,6 +3021,54 @@ unsigned int DSI_dcs_read_lcm_reg_v2_wrapper_DSIDUAL(uint8_t cmd, uint8_t *buffe
 	return DSI_dcs_read_lcm_reg_v2(DISP_MODULE_DSIDUAL, NULL, cmd, buffer, buffer_size);
 }
 
+long lcd_bias_enp_out(unsigned int value)
+{
+	long ret = 0;
+#if !defined(CONFIG_MTK_LEGACY)
+	if (value)
+		ret = disp_dts_gpio_select_state(DTS_GPIO_STATE_LCD_BIAS_EN1);
+	else
+		ret = disp_dts_gpio_select_state(DTS_GPIO_STATE_LCD_BIAS_EN0);
+#endif
+	return ret;
+}
+
+long lcd_rst_enp_out(unsigned int value)
+{
+	long ret = 0;
+#if !defined(CONFIG_MTK_LEGACY)
+	if (value)
+		ret = disp_dts_gpio_select_state(DTS_GPIO_STATE_LCM_RST_GPIO1);
+	else
+		ret = disp_dts_gpio_select_state(DTS_GPIO_STATE_LCM_RST_GPIO0);
+#endif
+	return ret;
+}
+
+long blic_en_enp_out(unsigned int value)
+{
+	long ret = 0;
+#if !defined(CONFIG_MTK_LEGACY)
+	if (value)
+		ret = disp_dts_gpio_select_state(DTS_GPIO_STATE_BLIC_EN_EN1);
+	else
+		ret = disp_dts_gpio_select_state(DTS_GPIO_STATE_BLIC_EN_EN0);
+#endif
+	return ret;
+}
+
+long blic_ctl_enp_out(unsigned int value)
+{
+	long ret = 0;
+#if !defined(CONFIG_MTK_LEGACY)
+	if (value)
+		ret = disp_dts_gpio_select_state(DTS_GPIO_STATE_BLIC_CTL_EN1);
+	else
+		ret = disp_dts_gpio_select_state(DTS_GPIO_STATE_BLIC_CTL_EN0);
+#endif
+	return ret;
+}
+
 static LCM_UTIL_FUNCS lcm_utils_dsi0;
 static LCM_UTIL_FUNCS lcm_utils_dsi1;
 static LCM_UTIL_FUNCS lcm_utils_dsidual;
@@ -3151,6 +3199,10 @@ int ddp_dsi_set_lcm_utils(DISP_MODULE_ENUM module, LCM_DRIVER *lcm_drv)
 	utils->set_gpio_dir = 0;
 	utils->set_gpio_pull_enable = 0;
 	utils->set_gpio_lcd_enp_bias_ByName = lcd_enp_bias_setting_by_name;
+	utils->set_gpio_lcd_bias_enp = lcd_bias_enp_out;
+	utils->set_gpio_lcd_rst_enp = lcd_rst_enp_out;
+	utils->set_gpio_blic_en_enp = blic_en_enp_out;
+	utils->set_gpio_blic_ctl_enp = blic_ctl_enp_out;
 #endif
 #endif
 

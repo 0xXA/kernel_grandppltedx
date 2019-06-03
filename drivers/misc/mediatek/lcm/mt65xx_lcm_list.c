@@ -1070,6 +1070,9 @@ LCM_DRIVER *lcm_driver_list[] = {
 #if defined(AUO_WUXGA_DSI_VDO)
 	&auo_wuxga_dsi_vdo_lcm_drv,
 #endif
+#if defined(MTK_GEN_PANEL)
+	&mtk_gen_panel_drv,
+#endif
 };
 
 unsigned char lcm_name_list[][128] = {

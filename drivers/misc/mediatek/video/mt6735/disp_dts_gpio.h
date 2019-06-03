@@ -30,6 +30,14 @@ typedef enum tagDTS_GPIO_STATE {
 	DTS_GPIO_STATE_PWM_TEST_PINMUX_129, /* pwm_test_pin_mux_gpio129 */
 	DTS_GPIO_STATE_LCD_BIAS_ENN,
 	DTS_GPIO_STATE_LCD_BIAS_ENP,
+	DTS_GPIO_STATE_LCM_RST_GPIO0,		/* mode_rst_gpio0 */
+	DTS_GPIO_STATE_LCM_RST_GPIO1,		/* mode_rst_gpio1 */
+	DTS_GPIO_STATE_LCD_BIAS_EN0,		/* mode_lcd_bias_gpio0 */
+	DTS_GPIO_STATE_LCD_BIAS_EN1,		/* mode_lcd_bias_gpio1 */
+	DTS_GPIO_STATE_BLIC_CTL_EN0,		/* mode_blic_ctl_gpio0 */
+	DTS_GPIO_STATE_BLIC_CTL_EN1,		/* mode_blic_ctl_gpio1 */
+	DTS_GPIO_STATE_BLIC_EN_EN0,		/* mode_blic_en_en0 */
+	DTS_GPIO_STATE_BLIC_EN_EN1,		/* mode_blic_en_en1 */
 
 	DTS_GPIO_STATE_MAX,                 /* for array size */
 } DTS_GPIO_STATE;

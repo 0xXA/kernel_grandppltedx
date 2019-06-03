@@ -798,6 +798,10 @@ typedef struct {
 #ifndef BUILD_LK
 	long (*set_gpio_lcd_enp_bias_ByName)(bool bOn, char *pinName);
 #endif
+	long (*set_gpio_lcd_bias_enp)(unsigned int value);
+	long (*set_gpio_lcd_rst_enp)(unsigned int value);
+	long (*set_gpio_blic_en_enp)(unsigned int value);
+	long (*set_gpio_blic_ctl_enp)(unsigned int value);
 	void (*dsi_set_cmdq_V11)(void *cmdq, unsigned int *pdata, unsigned int queue_size,
 				  unsigned char force_update);
 	void (*dsi_set_cmdq_V22)(void *cmdq, unsigned cmd, unsigned char count,

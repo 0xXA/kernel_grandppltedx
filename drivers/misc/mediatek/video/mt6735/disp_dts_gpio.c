@@ -26,7 +26,15 @@ static const char *this_state_name[DTS_GPIO_STATE_MAX] = {
 	"pwm_test_pin_mux_gpio69",      /* DTS_GPIO_STATE_PWM_TEST_PINMUX_69 */
 	"pwm_test_pin_mux_gpio129",     /* DTS_GPIO_STATE_PWM_TEST_PINMUX_129 */
 	"lcd_bias_enp0_gpio",
-	"lcd_bias_enp1_gpio"
+	"lcd_bias_enp1_gpio",
+	"lcm_rst_out0_gpio",	/* DTS_GPIO_STATE_LCM_RST_GPIO0 */
+	"lcm_rst_out1_gpio",	/* DTS_GPIO_STATE_LCM_RST_GPIO1 */
+	"lcd_bias_enp0_gpio",	/* DTS_GPIO_STATE_LCD_BIAS_EN0 */
+	"lcd_bias_enp1_gpio",	/* DTS_GPIO_STATE_LCD_BIAS_EN1 */
+	"blic_ctl_enp0_gpio",	/* DTS_GPIO_STATE_BLIC_CTL_EN0 */
+	"blic_ctl_enp1_gpio",	/* DTS_GPIO_STATE_BLIC_CTL_EN1 */
+	"blic_en_enp0_gpio",	/* DTS_GPIO_STATE_BLIC_EN_EN0 */
+	"blic_en_enp1_gpio"	/* DTS_GPIO_STATE_BLIC_EN_EN1 */
 };
 
 /* pinctrl implementation */

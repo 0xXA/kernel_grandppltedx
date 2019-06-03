@@ -47,6 +47,7 @@ fw-shipped-y += $(focaltech_firmware2)
 endif
 endif
 
+fw-shipped-$(CONFIG_TOUCHSCREEN_BT541) += tsp_zinitix/bt541_GP.fw
 fw-shipped-$(CONFIG_ACENIC) += $(acenic-objs)
 fw-shipped-$(CONFIG_ADAPTEC_STARFIRE) += adaptec/starfire_rx.bin \
 					 adaptec/starfire_tx.bin

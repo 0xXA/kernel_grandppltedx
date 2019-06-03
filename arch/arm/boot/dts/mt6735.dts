@@ -357,6 +357,12 @@ initrd=0x44000000,0x300000 loglevel=8 androidboot.hardware=mt6735";
 			interrupts = <GIC_SPI 164 IRQ_TYPE_EDGE_FALLING>;
 		};
 
+		gpio_keys: gpio_keys {
+			compatible = "gpio-keys";
+			#address-cells = <1>;
+			#size-cells = <0>;
+		};
+
 		apxgpt: apxgpt@10004000 {
 			compatible = "mediatek,mt6735-apxgpt";
 			reg = <0x10004000 0x1000>;
